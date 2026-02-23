@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administración de Grand Motors - Consultar producto</title>
+    <title>Administración de Grand Motors - Inicio</title>
     <link rel="icon" type="image/x-icon" href="../resources/images/tab-icon.png">
     <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
 </head>
@@ -17,25 +17,30 @@
         </a>
         <h2>Administración</h2>
         <div class="d-flex gap-3 flex-wrap mt-3 mt-md-0">
-            <a class="btn btn-outline-light" href="admin-interface.html">Volver</a>
+            <p>Usuario actual: {Usuario}</p>
         </div>  
     </header>
 
     <main>
         <div class = "text-center" style = "font-family: 'Merriwheather';">
-            <h2 class = "text-center pt-3">Consultar producto</h2>
+            <h2 class = "text-center pt-3">Portal administrativo</h2>
             <hr>
-            <div class="position-absolute top-50 start-50 translate-middle text-center shadow p-4 rounded-4" style = "background-color: rgb(148, 194, 255); width: 50%;"> 
-                <p>Seleccionar categoría</p>
-                <div class = "mx-5">
-                    <select class="form-select my-2" required>
-                        <option value="" selected disabled hidden>Seleccionar</option>
-                        <option value="1">Vehículo</option>
-                        <option value="2">Accesorio</option>
-                    </select>
+            <p>Seleccione una opción</p>
+            <div class="position-absolute top-50 start-50 translate-middle text-center shadow p-4 rounded-4" style = "background-color: rgb(148, 194, 255); width: 40%;"> 
+                <div class = "row row-cols-2">
+                    <div class = "column">
+                        <a class = "my-2 btn btn-primary" style = "width: 100%;" href="create.html">Registrar producto</a>
+                        <br>
+                        <a class = "my-2 btn btn btn-primary" style = "width: 100%;" href="read.html">Consultar producto</a>
+                    </div>  
+                    <div class = "column">
+                        <a class = "my-2 btn btn btn-primary" style = "width: 100%;" href="update.html">Actualizar producto</a>
+                        <br>
+                        <a class = "my-2 btn btn btn-primary" style = "width: 100%;" href="delete.html">Eliminar producto</a>
+                    </div>  
                 </div>
                 <hr>
-                <button class = "btn btn-success">Continuar</button>
+                <button class = "btn" style = "background-color: rgb(162, 56, 56); color: rgb(255, 255, 255);">Cerrar sesión</button>
             </div>
         </div>
     </main>
