@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="es">
 
 <head>
@@ -14,10 +15,19 @@
         <a href="#">
             <img src="resources/images/logo.png" width="250" alt="Logo">
         </a>
-        <div class="d-flex gap-3 flex-wrap mt-3 mt-md-0">
-            <a class="btn btn-outline-light" href="mision.html">Misión</a>
-            <a class="btn btn-outline-light" href="vision.html">Visión</a>
-            <a class="btn btn-outline-light" href="contacto.html">Contacto</a>
+        <div class="d-flex gap-5 mt-3 mt-md-0">
+            <a class="btn btn-outline-light" href="mision.html" style = "width: 25%;">Misión</a>
+            <a class="btn btn-outline-light" href="vision.html" style = "width: 25%;">Visión</a>
+            <a class="btn btn-outline-light" href="contacto.html" style = "width: 25%;">Contacto</a>
+            <a class="btn btn-outline-light" href="compra.html" style = "width: 25%;">Compra</a>
+            <select id="opciones" name="opciones" class = "btn btn-outline-light" style = "appearance: none; width: 25%;" onchange = "if(this.value) window.location.href=this.value;">
+                <option value="" disabled selected hidden>
+                    Servicios
+                </option>
+                <option value="accesorios.html">Accesorios</option>
+                <option value="mantenimiento.html">Mantenimiento</option>
+                <option value="seguros.html">Seguros y garantía</option>
+            </select>
         </div>
     </header>
 
@@ -25,12 +35,15 @@
         <div class = "text-center" style = "font-family: 'Merriwheather';">
             <h2 class = "text-center pt-3">Catálogo de Autos</h2>
             <hr>
-            <select id="opciones" name="opcio3nes">
+            <select id="opciones" name="opciones" class = "btn btn-outline-secondary">
+                <option value="" disabled selected hidden>
+                    Seleccione una categoría
+                </option>
                 <option value="op1">Deportivos</option>
                 <option value="op2">Todoterreno</option>
                 <option value="op3">Sedanes</option>
-                <option value="op3">De carga</option>
-                <option value="op3">De viaje</option>
+                <option value="op4">De carga</option>
+                <option value="op5">De viaje</option>
             </select>
         </div>
     </main>
