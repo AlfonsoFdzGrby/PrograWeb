@@ -21,7 +21,7 @@
 
 .animated-button:hover {
     transform: scale(1.2);
-    font-size: 20;
+    font-size: 20px;
     filter: brightness(85%);
 }
 
@@ -29,10 +29,4 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-}
-
-footer {
-    color: white;
-    text-align: center;
-    padding: 20px;
 }

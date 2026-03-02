@@ -1,5 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -35,21 +34,35 @@
         <div class = "text-center" style = "font-family: 'Merriwheather';">
             <h2 class = "text-center pt-3">Catálogo de Autos</h2>
             <hr>
-            <select id="opciones" name="opciones" class = "btn btn-outline-secondary">
-                <option value="" disabled selected hidden>
-                    Seleccione una categoría
-                </option>
-                <option value="op1">Deportivos</option>
-                <option value="op2">Todoterreno</option>
-                <option value="op3">Sedanes</option>
-                <option value="op4">De carga</option>
-                <option value="op5">De viaje</option>
-            </select>
+            <form>
+                <select id="categoria" name="categoria" class = "btn btn-outline-secondary">
+                    <option value="" disabled selected hidden>
+                        Seleccione una categoría
+                    </option>
+                    <option value="op1">Deportivos</option>
+                    <option value="op2">Todoterreno</option>
+                    <option value="op3">Sedanes</option>
+                    <option value="op4">De carga</option>
+                    <option value="op5">De viaje</option>
+                </select>
+            </form>
         </div>
     </main>
 
     <footer class = "text-center bg-secondary bg-gradient text-white py-3 mt-auto" style = "font-family: 'Merriwheather';">
         <p>Alfonso Marón Fernández Garibay - Desarrollo Web</p>
+        <p>
+            <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px"
+                    src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
+                    alt="¡CSS Válido!">
+            </a>
+            <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px"
+                    src="https://www.w3.org/Icons/valid-html401"
+                    alt="¡HTML Válido!">
+            </a>
+        </p>
     </footer>
 
     <script src="resources/js/bootstrap.bundle.min.js"></script>
