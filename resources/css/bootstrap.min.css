@@ -7,7 +7,7 @@
 
 @font-face {
     font-family: 'Merriwheather';
-    src: url('../fonts/Merriweather-VariableFont_opsz\,wdth\,wght.ttf') format('truetype');
+    src: url('https://cdn.jsdelivr.net/gh/AlfonsoFdzGrby/PrograWeb@main/resources/fonts/Merriweather-VariableFont_opsz\,wdth\,wght.ttf') format('truetype');
     font-weight: 45;
     font-style: normal;
 }
