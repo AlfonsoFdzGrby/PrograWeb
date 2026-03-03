@@ -30,3 +30,59 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
+
+/* ==================================================== Para mision.html =============================================== */
+
+.mision-section {
+    position: relative;
+    background: url('../images/mision.jpg') no-repeat center center;
+    background-size: cover;
+    border-radius: 8px;
+    overflow: hidden;
+    min-height: 300px;
+    color: white;
+    padding: 40px;
+}
+
+.vision-section {
+    position: relative;
+    background: url('../images/vision.jpg') no-repeat center center;
+    background-size: cover;
+    border-radius: 8px;
+    overflow: hidden;
+    min-height: 300px;
+    color: white;
+    padding: 40px;
+}
+
+.mision-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(10, 25, 47, 0.85),
+        rgba(0, 0, 0, 0.75)
+    );
+    z-index: 1;
+}
+
+.vision-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(10, 25, 47, 0.85),
+        rgba(0, 0, 0, 0.75)
+    );
+    z-index: 1;
+}
+
+.mision-content {
+    position: relative;
+    z-index: 2;
+}
+
+.mision-section p {
+    text-align: justify;
+    font-size: 110%;
+}
