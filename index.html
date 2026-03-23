@@ -5,90 +5,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grand Motors - Inicio</title>
-    <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/AlfonsoFdzGrby/PrograWeb@main/resources/images/tab-icon.png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AlfonsoFdzGrby/PrograWeb@main/resources/css/bootstrap.min.css">
+    <link rel="icon" type="image/x-icon" href="resources/images/tab-icon.png">
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
 </head>
 
-<body class = "bg-light bg-gradient">
+<body class="bg-light bg-gradient">
     <header class="bg-dark bg-gradient text-white shadow px-4 py-3 d-flex justify-content-between align-items-center flex-wrap">
-        <a href="#">
-            <img src="https://cdn.jsdelivr.net/gh/AlfonsoFdzGrby/PrograWeb@main/resources/images/logo.png" width="250" alt="Logo">
+        <a href="index.html">
+            <img src="resources/images/logo.png" width="250" alt="Logo">
         </a>
-        <div class="d-flex gap-5 mt-3 mt-md-0">
-            <a class="btn btn-outline-light" href="https://cdn.jsdelivr.net/gh/AlfonsoFdzGrby/PrograWeb@main/mision.html" style = "width: 25%;">Misión</a>
-            <a class="btn btn-outline-light" href="https://cdn.jsdelivr.net/gh/AlfonsoFdzGrby/PrograWeb@main/vision.html" style = "width: 25%;">Visión</a>
-            <a class="btn btn-outline-light" href="https://cdn.jsdelivr.net/gh/AlfonsoFdzGrby/PrograWeb@main/contacto.html" style = "width: 25%;">Contacto</a>
-            <a class="btn btn-outline-light" href="https://cdn.jsdelivr.net/gh/AlfonsoFdzGrby/PrograWeb@main/compra.html" style = "width: 25%;">Compra</a>
-            <select id="opciones" name="opciones" class = "btn btn-outline-light" style = "appearance: none; width: 25%;" onchange = "if(this.value) window.location.href=this.value;">
-                <option value="" disabled selected hidden>
-                    Servicios
-                </option>
-                <option value="https://cdn.jsdelivr.net/gh/AlfonsoFdzGrby/PrograWeb@main/accesorios.html">Accesorios</option>
-                <option value="https://cdn.jsdelivr.net/gh/AlfonsoFdzGrby/PrograWeb@main/seguros.html">Seguros y garantía</option>
+        <div class="d-flex gap-3 flex-wrap mt-3 mt-md-0 align-items-center">
+            <a class="btn btn-outline-light" href="index.html">Inicio</a>
+            <a class="btn btn-outline-light" href="mision.html">Misión</a>
+            <a class="btn btn-outline-light" href="vision.html">Visión</a>
+            <a class="btn btn-outline-light" href="contacto.html">Contacto</a>
+            <a class="btn btn-outline-light" href="compra.html">Compra</a>
+            <select id="opciones" name="opciones" class="btn btn-outline-light"
+                style="appearance: none; width: auto;"
+                onchange="if(this.value) window.location.href=this.value;">
+                <option value="" disabled selected hidden>Servicios</option>
+                <option value="accesorios.html">Accesorios</option>
+                <option value="seguros.html">Seguros y garantía</option>
             </select>
+            <button class="btn btn-warning text-dark fw-semibold" id="btn-admin-login">
+                🔒 Administración
+            </button>
         </div>
     </header>
 
     <main>
-        <div class = "text-center" style = "font-family: 'Merriwheather';">
-            <h2 class = "text-center pt-3">Catálogo de Autos</h2>
+        <div class="text-center" style="font-family: 'Merriwheather';">
+            <h2 class="text-center pt-3">Catálogo de Autos</h2>
             <hr>
-            <form>
-                <select id="categoria" name="categoria" class = "btn btn-outline-secondary">
-                    <option value="" disabled selected hidden>
-                        Seleccione una categoría
-                    </option>
-                    <option value="op1">Deportivos</option>
-                    <option value="op2">Todoterreno</option>
-                    <option value="op3">Sedanes</option>
-                    <option value="op4">De carga</option>
-                    <option value="op5">De viaje</option>
-                </select>
-            </form>
+            <select id="categoria" name="categoria" class="btn btn-outline-secondary">
+                <option value="">Seleccione una categoría</option>
+                <option value="Deportivos">Deportivos</option>
+                <option value="Todoterreno">Todoterreno</option>
+                <option value="Sedanes">Sedanes</option>
+                <option value="De carga">De carga</option>
+                <option value="De viaje">De viaje</option>
+            </select>
         </div>
 
         <br>
 
         <div class="container">
-            <div class="row">
-                <!-- Producto 1 -->
-                <div class="col-md-4 mb-4 d-flex">
-                    <div class="card product-card flex-fill" style="cursor: pointer; border: 2px solid transparent;">
-                        <img src="https://website-images.mclaren.com/50/mclaren-w1-front-three-quarter.jpg" class="card-img-top" alt="Producto">
-                        <div class="card-body d-flex flex-column">
-                            <h3 class="card-title">MacLaren W1</h3>
-                            <p class="card-text mt-auto">Precio: $ 2,100,000 USD</p>
-                        </div>
-                    </div>
+            <div class="row" id="catalogo-row"></div>
+        </div>
+    </main>
+    <div class="modal fade" id="modal-auto" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-auto-titulo"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-
-                <!-- Producto 2 -->
-                <div class="col-md-4 mb-4 d-flex">
-                    <div class="card product-card flex-fill" style="cursor: pointer; border: 2px solid transparent;">
-                        <img src="https://cms-assets.autoscout24.com/uaddx06iwzdz/1VkIfekyigl2PGmBZCyeh8/cafbf0103a56e50a7622bc90cb257452/porsche-911-carrera-s-front.jpeg?w=1100" class="card-img-top" alt="Producto">
-                        <div class="card-body d-flex flex-column">
-                            <h3 class="card-title">Porsche 911</h3>
-                            <p class="card-text mt-auto">Precio: $ 122,000 USD</p>
-                        </div>
-                    </div>
+                <div class="modal-body text-center">
+                    <img id="modal-auto-img" src="" alt="" class="img-fluid rounded mb-3"
+                        style="max-height: 220px; object-fit: cover; width: 100%;">
+                    <p><strong>Precio:</strong> <span id="modal-auto-precio"></span></p>
                 </div>
-
-                <!-- Producto 3 -->
-                <div class="col-md-4 mb-4 d-flex">
-                    <div class="card product-card flex-fill" style="cursor: pointer; border: 2px solid transparent;">
-                        <img src="https://www.excelenciasdelmotor.com/sites/default/files/inline-images/Chevy_Swing_5P_1996_Blanco.JPG" class="card-img-top" alt="Producto">
-                        <div class="card-body d-flex flex-column">
-                            <h3 class="card-title">Chevy del marketplace</h3>
-                            <p class="card-text mt-auto">Precio: 3 pesos y una vaca</p>
-                        </div>
-                    </div>
+                <div class="modal-footer">
+                    <a href="compra.html" class="btn btn-dark">Ver concesionarias</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
+    </div>
 
-    </main>
+    <div class="modal fade" id="modal-login" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header text-white" style="background-color: rgb(45, 0, 158);">
+                    <h5 class="modal-title">🔒 Acceso Administrativo</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div id="login-alert" class="alert alert-danger d-none"></div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Usuario</label>
+                        <input type="text" id="login-usuario" class="form-control" placeholder="Usuario" autocomplete="username">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Contraseña</label>
+                        <input type="password" id="login-password" class="form-control" placeholder="Contraseña" autocomplete="current-password">
+                    </div>
+                    <small class="text-muted">Demo: usuario <code>admin</code> / contraseña <code>1234</code></small>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn text-white" id="btn-login-submit"
+                        style="background-color: rgb(45, 0, 158);">Ingresar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <footer class = "text-center bg-secondary bg-gradient text-white py-3 mt-auto" style = "font-family: 'Merriwheather';">
+    <footer class="text-center bg-secondary bg-gradient text-white py-3 mt-auto" style="font-family: 'Merriwheather';">
         <p>Alfonso Marón Fernández Garibay - Desarrollo Web</p>
         <p>
             <a href="https://jigsaw.w3.org/css-validator/check/referer">
@@ -98,13 +111,113 @@
             </a>
             <a href="https://jigsaw.w3.org/css-validator/check/referer">
                 <img style="border:0;width:88px;height:31px"
-                    src="https://www.w3.org/Icons/valid-html401"
+                    src="resources/images/valid-html401.png"
                     alt="¡HTML Válido!">
             </a>
         </p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/gh/AlfonsoFdzGrby/PrograWeb@main/resources/js/bootstrap.bundle.min.js"></script>
+    <script src="resources/js/bootstrap.bundle.min.js"></script>
+    <script src="resources/js/gm.js"></script>
+    <script>
+        const modalAuto = new bootstrap.Modal(document.getElementById('modal-auto'));
+
+        function renderCatalogo(subcategoria) {
+            const productos = dbRead();
+            const vehiculos = productos.filter(p => p.categoria === 'Vehículo');
+            const filtrados  = subcategoria
+                ? vehiculos.filter(p => p.subcategoria === subcategoria)
+                : vehiculos;
+
+            const row = document.getElementById('catalogo-row');
+            row.innerHTML = '';
+
+            if (filtrados.length === 0) {
+                row.innerHTML = '<p class="text-muted text-center col-12">No hay vehículos en esta categoría.</p>';
+                return;
+            }
+
+            filtrados.forEach(auto => {
+                const col = document.createElement('div');
+                col.className = 'col-md-4 mb-4 d-flex';
+                col.innerHTML = `
+                    <div class="card product-card flex-fill"
+                         style="cursor:pointer; border:2px solid transparent; transition:border-color .2s;"
+                         data-id="${auto.id}">
+                        <img src="${auto.img}" class="card-img-top" alt="${auto.nombre}"
+                             style="height:200px; object-fit:cover;">
+                        <div class="card-body d-flex flex-column">
+                            ${auto.subcategoria
+                                ? `<span class="badge bg-secondary mb-1" style="width:fit-content;">${auto.subcategoria}</span>`
+                                : ''}
+                            <h3 class="card-title fs-5">${auto.nombre}</h3>
+                            <p class="card-text mt-auto">Precio: ${auto.precio}</p>
+                        </div>
+                    </div>`;
+
+                const card = col.querySelector('.card');
+                card.addEventListener('mouseenter', () => card.style.borderColor = '#6c757d');
+                card.addEventListener('mouseleave', () => card.style.borderColor = 'transparent');
+                card.addEventListener('click', () => abrirModalAuto(auto));
+
+                row.appendChild(col);
+            });
+        }
+
+        function abrirModalAuto(auto) {
+            document.getElementById('modal-auto-titulo').textContent = auto.nombre;
+            document.getElementById('modal-auto-img').src   = auto.img;
+            document.getElementById('modal-auto-img').alt   = auto.nombre;
+            document.getElementById('modal-auto-precio').textContent = auto.precio;
+            modalAuto.show();
+        }
+
+        document.getElementById('categoria').addEventListener('change', function () {
+            renderCatalogo(this.value);
+        });
+
+        renderCatalogo('');
+
+        const modalLogin  = new bootstrap.Modal(document.getElementById('modal-login'));
+        const inputUser   = document.getElementById('login-usuario');
+        const inputPass   = document.getElementById('login-password');
+        const loginAlert  = document.getElementById('login-alert');
+
+        document.getElementById('btn-admin-login').addEventListener('click', () => {
+            inputUser.value = '';
+            inputPass.value = '';
+            loginAlert.classList.add('d-none');
+            limpiarError(inputUser);
+            limpiarError(inputPass);
+            modalLogin.show();
+        });
+
+        function intentarLogin() {
+            const f = { usuario: inputUser.value, password: inputPass.value };
+            limpiarError(inputUser);
+            limpiarError(inputPass);
+            loginAlert.classList.add('d-none');
+
+            const errs = validarLogin(f);
+            if (errs.usuario)  mostrarError(inputUser, errs.usuario);
+            if (errs.password) mostrarError(inputPass, errs.password);
+            if (Object.keys(errs).length) return;
+
+            if (authLogin(f.usuario, f.password)) {
+                modalLogin.hide();
+                window.location.href = 'crud/admin-interface.html';
+            } else {
+                loginAlert.textContent = 'Usuario o contraseña incorrectos.';
+                loginAlert.classList.remove('d-none');
+            }
+        }
+
+        document.getElementById('btn-login-submit').addEventListener('click', intentarLogin);
+
+        [inputUser, inputPass].forEach(el =>
+            el.addEventListener('keydown', e => { if (e.key === 'Enter') intentarLogin(); })
+        );
+    </script>
 </body>
 
 </html>

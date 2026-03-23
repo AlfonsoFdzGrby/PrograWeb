@@ -5,54 +5,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administración de Grand Motors - Registrar producto</title>
-    <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/AlfonsoFdzGrby/PrograWeb@main/resources/images/tab-icon.png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AlfonsoFdzGrby/PrograWeb@main/resources/css/bootstrap.min.css">
+    <link rel="icon" type="image/x-icon" href="../resources/images/tab-icon.png">
+    <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
 </head>
 
-<body style = "background-color: aliceblue;">
-    <header class="bg-gradient text-white shadow px-4 py-3 d-flex justify-content-between align-items-center flex-wrap" style = "background-color: rgb(45, 0, 158);">
-        <a href="#">
-            <img src="https://cdn.jsdelivr.net/gh/AlfonsoFdzGrby/PrograWeb@main/resources/images/logo.png" width="250" alt="Logo">
+<body style="background-color: aliceblue;">
+    <header class="bg-gradient text-white shadow px-4 py-3 d-flex justify-content-between align-items-center flex-wrap"
+        style="background-color: rgb(45, 0, 158);">
+        <a href="admin-interface.html">
+            <img src="../resources/images/logo.png" width="250" alt="Logo">
         </a>
         <h2>Administración</h2>
         <div class="d-flex gap-3 flex-wrap mt-3 mt-md-0">
-            <a class="btn btn-outline-light" href="https://cdn.jsdelivr.net/gh/AlfonsoFdzGrby/PrograWeb@main/crud/admin-interface.html">Volver</a>
-        </div>  
+            <a class="btn btn-outline-light" href="admin-interface.html">Volver</a>
+        </div>
     </header>
 
     <main>
-        <div class = "text-center" style = "font-family: 'Merriwheather';">
-            <h2 class = "text-center pt-3">Registrar producto</h2>
+        <div class="text-center" style="font-family: 'Merriwheather';">
+            <h2 class="text-center pt-3">Registrar producto</h2>
             <hr>
-            <p>Ingrese los datos del nuevo producto</p>
-            <div class="position-absolute top-50 start-50 translate-middle text-center shadow p-4 rounded-4" style = "background-color: rgb(148, 194, 255); width: 50%;"> 
-                <form>
-                    <div class = "row row-cols-2">
-                        <div class = "column">
-                            <p>Nombre de producto</p>
-                            <input class="form-control my-2" type = "text" required>
-                            <br>
-                            <p>Precio</p>
-                            <input class="form-control my-2" type = "number" step="0.01" required>
+            <div class="position-absolute top-50 start-50 translate-middle mt-4 text-center shadow p-4 rounded-4"
+                style="background-color: rgb(148, 194, 255); width: 55%;">
+
+                <div id="create-success" class="alert alert-success d-none mb-3">
+                    ✓ Producto registrado exitosamente.
+                </div>
+
+                <form id="form-create" novalidate>
+                    <p><b>Ingrese los datos del nuevo producto</b></p>
+                    <div class="row row-cols-2 g-3 text-start">
+                        <div class="col">
+                            <label class="form-label" for="c-nombre">Nombre de producto *</label>
+                            <input id="c-nombre" class="form-control my-2" type="text">
+
+                            <label class="form-label" for="c-precio">Precio *</label>
+                            <input id="c-precio" class="form-control my-2" type="text" placeholder="$ 0.00">
                         </div>
-                        <div class = "column">
-                            <p>Categoría</p>
-                            <select class="form-select my-2" required>
-                                <option value="" selected disabled hidden>Seleccionar</option>
-                                <option value="1">Vehículo</option>
-                                <option value="2">Accesorio</option>
+                        <div class="col">
+                            <label class="form-label" for="c-categoria">Categoría *</label>
+                            <select id="c-categoria" class="form-select my-2">
+                                <option value="">Seleccionar</option>
+                                <option value="Vehículo">Vehículo</option>
+                                <option value="Accesorio">Accesorio</option>
                             </select>
-                            <br>
-                            <p>Imagen</p>
-                            <input class="form-control my-2" type = "file" required>
-                        </div>                
+                            <div id="wrap-subcategoria" class="d-none">
+                                <label class="form-label" for="c-subcategoria">Subcategoría</label>
+                                <select id="c-subcategoria" class="form-select my-2">
+                                    <option value="">Sin subcategoría</option>
+                                    <option value="Deportivos">Deportivos</option>
+                                    <option value="Todoterreno">Todoterreno</option>
+                                    <option value="Sedanes">Sedanes</option>
+                                    <option value="De carga">De carga</option>
+                                    <option value="De viaje">De viaje</option>
+                                </select>
+                            </div>
+
+                            <label class="form-label" for="c-img">URL de imagen *</label>
+                            <input id="c-img" class="form-control my-2" type="text" placeholder="https://...">
+                        </div>
                     </div>
+
+                    <div id="img-preview-wrap" class="mt-2 d-none">
+                        <img id="img-preview" src="" alt="Preview"
+                            style="max-height:120px; object-fit:cover; border-radius:8px;">
+                    </div>
+
+                    <hr>
+                    <button type="button" class="btn btn-success me-2" id="btn-guardar">Guardar</button>
+                    <a href="admin-interface.html" class="btn btn-outline-secondary">Cancelar</a>
                 </form>
             </div>
         </div>
     </main>
 
-    <footer class = "text-center bg-gradient text-white py-3 mt-auto" style = "font-family: 'Merriwheather'; background-color: rgb(27, 0, 94);">
+    <footer class="text-center bg-gradient text-white py-3 mt-auto"
+        style="font-family: 'Merriwheather'; background-color: rgb(27, 0, 94);">
         <p>Alfonso Marón Fernández Garibay - Desarrollo Web</p>
         <p>
             <a href="https://jigsaw.w3.org/css-validator/check/referer">
@@ -62,13 +90,90 @@
             </a>
             <a href="https://jigsaw.w3.org/css-validator/check/referer">
                 <img style="border:0;width:88px;height:31px"
-                    src="https://www.w3.org/Icons/valid-html401"
+                    src="../resources/images/valid-html401.png"
                     alt="¡HTML Válido!">
             </a>
         </p>
     </footer>
-    
-    <script src="https://cdn.jsdelivr.net/gh/AlfonsoFdzGrby/PrograWeb@main/resources/js/bootstrap.bundle.min.js"></script>
+
+    <script src="../resources/js/bootstrap.bundle.min.js"></script>
+    <script src="../resources/js/gm.js"></script>
+    <script>
+        authCheck();
+
+        const campos = {
+            nombre:   document.getElementById('c-nombre'),
+            precio:   document.getElementById('c-precio'),
+            categoria:document.getElementById('c-categoria'),
+            img:      document.getElementById('c-img'),
+        };
+        const subcatSelect  = document.getElementById('c-subcategoria');
+        const wrapSubcat    = document.getElementById('wrap-subcategoria');
+        const previewWrap   = document.getElementById('img-preview-wrap');
+        const previewImg    = document.getElementById('img-preview');
+        const successEl     = document.getElementById('create-success');
+
+        campos.categoria.addEventListener('change', function () {
+            if (this.value === 'Vehículo') {
+                wrapSubcat.classList.remove('d-none');
+            } else {
+                wrapSubcat.classList.add('d-none');
+                subcatSelect.value = '';
+            }
+        });
+
+        campos.img.addEventListener('input', function () {
+            const url = this.value.trim();
+            if (/^https?:\/\/.+/.test(url)) {
+                previewImg.src = url;
+                previewWrap.classList.remove('d-none');
+            } else {
+                previewWrap.classList.add('d-none');
+            }
+        });
+
+        Object.values(campos).forEach(el =>
+            el.addEventListener('input', () => limpiarError(el))
+        );
+
+        document.getElementById('btn-guardar').addEventListener('click', () => {
+            const f = {
+                nombre:   campos.nombre.value,
+                precio:   campos.precio.value,
+                categoria:campos.categoria.value,
+                img:      campos.img.value,
+            };
+
+            Object.values(campos).forEach(limpiarError);
+            const errs = validarProducto(f);
+
+            if (Object.keys(errs).length) {
+                if (errs.nombre)    mostrarError(campos.nombre,    errs.nombre);
+                if (errs.precio)    mostrarError(campos.precio,    errs.precio);
+                if (errs.categoria) mostrarError(campos.categoria, errs.categoria);
+                if (errs.img)       mostrarError(campos.img,       errs.img);
+                return;
+            }
+
+            dbAdd({
+                nombre:      f.nombre.trim(),
+                precio:      f.precio.trim(),
+                categoria:   f.categoria,
+                subcategoria:subcatSelect.value,
+                img:         f.img.trim(),
+                desc:        '',
+            });
+
+            successEl.classList.remove('d-none');
+            document.getElementById('form-create').reset();
+            subcatSelect.value = '';
+            wrapSubcat.classList.add('d-none');
+            previewWrap.classList.add('d-none');
+            Object.values(campos).forEach(limpiarError);
+
+            setTimeout(() => successEl.classList.add('d-none'), 2500);
+        });
+    </script>
 </body>
 
 </html>

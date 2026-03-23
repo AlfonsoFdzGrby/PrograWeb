@@ -5,61 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grand Motors - Accesorios</title>
-    <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/AlfonsoFdzGrby/PrograWeb@main/resources/images/tab-icon.png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AlfonsoFdzGrby/PrograWeb@main/resources/css/bootstrap.min.css">
+    <link rel="icon" type="image/x-icon" href="resources/images/tab-icon.png">
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
 </head>
 
-<body class = "bg-light bg-gradient">
+<body class="bg-light bg-gradient">
     <header class="bg-dark bg-gradient text-white shadow px-4 py-3 d-flex justify-content-between align-items-center flex-wrap">
-        <a href="#">
-            <img src="https://cdn.jsdelivr.net/gh/AlfonsoFdzGrby/PrograWeb@main/resources/images/logo.png" width="250" alt="Logo">
+        <a href="index.html">
+            <img src="resources/images/logo.png" width="250" alt="Logo">
         </a>
         <div class="d-flex gap-3 flex-wrap mt-3 mt-md-0">
-            <a class="btn btn-outline-light" href="https://cdn.jsdelivr.net/gh/AlfonsoFdzGrby/PrograWeb@main/index.html">Volver</a>
+            <a class="btn btn-outline-light" href="index.html">Volver</a>
         </div>
     </header>
 
     <main>
-        <div class = "text-center" style = "font-family: 'Merriwheather';">
-            <h2 class = "text-center pt-3">Accesorios</h2>
+        <div class="text-center" style="font-family: 'Merriwheather';">
+            <h2 class="text-center pt-3">Accesorios</h2>
             <hr>
         </div>
 
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card product-card" onclick="selectCard(this)" style="cursor: pointer; border: 2px solid transparent;">
-                        <img src="https://m.media-amazon.com/images/I/719AghGyrWL.jpg" class="card-img-top" alt="Producto">
-                        <div class="card-body">
-                            <h2 class="card-title">Cobertor de volante de cuero vinil</h2>
-                            <p class="card-text">Un cobertor de volante sobrio y elegante. Disponible en solo un tamaño.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card product-card" onclick="selectCard(this)" style="cursor: pointer; border: 2px solid transparent;">
-                        <img src="https://http2.mlstatic.com/D_NQ_NP_845786-MLM94722672343_102025-O.webp" class="card-img-top" alt="Producto">
-                        <div class="card-body">
-                            <h2 class="card-title">Funda para asiento de cuero rojo y negro</h2>
-                            <p class="card-text">Una funda de auténtico cuero con estilo compatible para cualquier carro.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card product-card" onclick="selectCard(this)" style="cursor: pointer; border: 2px solid transparent;">
-                        <img src="https://m.media-amazon.com/images/I/61mfm6SchWL._AC_UF894,1000_QL80_.jpg" class="card-img-top" alt="Producto">
-                        <div class="card-body">
-                            <h2 class="card-title">Cabeza para palanca de cambios metálica</h2>
-                            <p class="card-text">Un repuesto para la cabeza de la palanca de cambios con un estilo retro.</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="row" id="accesorios-row"></div>
+            <div id="seleccion-alert" class="alert alert-primary d-none d-flex justify-content-between align-items-center mt-2">
+                <span>Seleccionaste: <strong id="seleccion-nombre"></strong></span>
+                <button type="button" class="btn btn-sm btn-outline-primary" id="btn-quitar">
+                    Quitar selección
+                </button>
             </div>
         </div>
-
     </main>
 
-    <footer class = "text-center bg-secondary bg-gradient text-white py-3 mt-auto" style = "font-family: 'Merriwheather';">
+    <footer class="text-center bg-secondary bg-gradient text-white py-3 mt-auto" style="font-family: 'Merriwheather';">
         <p>Alfonso Marón Fernández Garibay - Desarrollo Web</p>
         <p>
             <a href="https://jigsaw.w3.org/css-validator/check/referer">
@@ -69,13 +46,83 @@
             </a>
             <a href="https://jigsaw.w3.org/css-validator/check/referer">
                 <img style="border:0;width:88px;height:31px"
-                    src="https://www.w3.org/Icons/valid-html401"
+                    src="resources/images/valid-html401.png"
                     alt="¡HTML Válido!">
             </a>
         </p>
     </footer>
-    
-    <script src="https://cdn.jsdelivr.net/gh/AlfonsoFdzGrby/PrograWeb@main/resources/js/bootstrap.bundle.min.js"></script>
+
+    <script src="resources/js/bootstrap.bundle.min.js"></script>
+    <script src="resources/js/gm.js"></script>
+    <script>
+        let selectedId = null;
+
+        function renderAccesorios() {
+            const accesorios = dbRead().filter(p => p.categoria === 'Accesorio');
+            const row = document.getElementById('accesorios-row');
+            row.innerHTML = '';
+
+            accesorios.forEach(acc => {
+                const col = document.createElement('div');
+                col.className = 'col-md-4 mb-4';
+                col.innerHTML = `
+                    <div class="card product-card"
+                         style="cursor:pointer; border:2px solid transparent; transition:border-color .2s;"
+                         data-id="${acc.id}">
+                        <img src="${acc.img}" class="card-img-top" alt="${acc.nombre}"
+                             style="height:200px; object-fit:cover;">
+                        <div class="card-body">
+                            <h2 class="card-title fs-5">${acc.nombre}</h2>
+                            <p class="card-text">${acc.desc || acc.precio}</p>
+                        </div>
+                    </div>`;
+
+                const card = col.querySelector('.card');
+                card.addEventListener('mouseenter', () => {
+                    if (selectedId !== acc.id) card.style.borderColor = '#6c757d';
+                });
+                card.addEventListener('mouseleave', () => {
+                    if (selectedId !== acc.id) card.style.borderColor = 'transparent';
+                });
+                card.addEventListener('click', () => seleccionar(acc));
+
+                row.appendChild(col);
+            });
+
+            actualizarSeleccion();
+        }
+
+        function seleccionar(acc) {
+            selectedId = selectedId === acc.id ? null : acc.id;
+            actualizarSeleccion();
+        }
+
+        function actualizarSeleccion() {
+            const alert  = document.getElementById('seleccion-alert');
+            const nombre = document.getElementById('seleccion-nombre');
+
+            // Actualizar bordes
+            document.querySelectorAll('#accesorios-row .card').forEach(card => {
+                const id = parseInt(card.dataset.id);
+                card.style.borderColor = id === selectedId ? '#0d6efd' : 'transparent';
+            });
+
+            if (selectedId !== null) {
+                const acc = dbRead().find(p => p.id === selectedId);
+                if (acc) nombre.textContent = acc.nombre;
+                alert.classList.remove('d-none');
+            } else {
+                alert.classList.add('d-none');
+            }
+        }
+
+        document.getElementById('btn-quitar').addEventListener('click', () => {
+            selectedId = null;
+            actualizarSeleccion();
+        });
+
+        renderAccesorios();
+    </script>
 </body>
 
 </html>

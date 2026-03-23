@@ -5,41 +5,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administración de Grand Motors - Actualizar producto</title>
-    <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/AlfonsoFdzGrby/PrograWeb@main/resources/images/tab-icon.png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AlfonsoFdzGrby/PrograWeb@main/resources/css/bootstrap.min.css">
+    <link rel="icon" type="image/x-icon" href="../resources/images/tab-icon.png">
+    <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
 </head>
 
-<body style = "background-color: aliceblue;">
-    <header class="bg-gradient text-white shadow px-4 py-3 d-flex justify-content-between align-items-center flex-wrap" style = "background-color: rgb(45, 0, 158);">
-        <a href="#">
-            <img src="https://cdn.jsdelivr.net/gh/AlfonsoFdzGrby/PrograWeb@main/resources/images/logo.png" width="250" alt="Logo">
+<body style="background-color: aliceblue;">
+    <header class="bg-gradient text-white shadow px-4 py-3 d-flex justify-content-between align-items-center flex-wrap"
+        style="background-color: rgb(45, 0, 158);">
+        <a href="admin-interface.html">
+            <img src="../resources/images/logo.png" width="250" alt="Logo">
         </a>
         <h2>Administración</h2>
         <div class="d-flex gap-3 flex-wrap mt-3 mt-md-0">
-            <a class="btn btn-outline-light" href="https://cdn.jsdelivr.net/gh/AlfonsoFdzGrby/PrograWeb@main/crud/admin-interface.html">Volver</a>
-        </div> 
+            <a class="btn btn-outline-light" href="admin-interface.html">Volver</a>
+        </div>
     </header>
 
     <main>
-        <div class = "text-center" style = "font-family: 'Merriwheather';">
-            <h2 class = "text-center pt-3">Actualizar producto</h2>
+        <div class="text-center" style="font-family: 'Merriwheather';">
+            <h2 class="text-center pt-3">Actualizar producto</h2>
             <hr>
-            <div class="position-absolute top-50 start-50 translate-middle text-center shadow p-4 rounded-4" style = "background-color: rgb(148, 194, 255); width: 50%;"> 
-                <p>Seleccionar categoría</p>
-                <div class = "mx-5">
-                    <select class="form-select my-2" required>
-                        <option value="" selected disabled hidden>Seleccionar</option>
-                        <option value="1">Vehículo</option>
-                        <option value="2">Accesorio</option>
-                    </select>
+
+            <div class="container">
+                <div class="shadow p-4 rounded-4" style="background-color: rgb(148, 194, 255);">
+
+                    <div id="vista-seleccion">
+                        <p><b>Seleccionar producto a actualizar</b></p>
+                        <select id="filtro-categoria" class="form-select my-2 w-auto mx-auto">
+                            <option value="">Todas las categorías</option>
+                            <option value="Vehículo">Vehículo</option>
+                            <option value="Accesorio">Accesorio</option>
+                        </select>
+                        <div class="table-responsive mt-3">
+                            <table class="table table-bordered table-hover bg-white rounded">
+                                <thead class="table-dark">
+                                    <tr><th>ID</th><th>Nombre</th><th>Categoría</th><th>Precio</th><th>Acción</th></tr>
+                                </thead>
+                                <tbody id="tabla-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div id="vista-edicion" class="d-none">
+                        <div id="update-success" class="alert alert-success d-none mb-3">
+                            ✓ Producto actualizado correctamente.
+                        </div>
+                        <p id="edicion-titulo"><b></b></p>
+
+                        <div class="row row-cols-2 g-3 text-start">
+                            <div class="col">
+                                <label class="form-label" for="e-nombre">Nombre *</label>
+                                <input id="e-nombre" class="form-control my-2" type="text">
+
+                                <label class="form-label" for="e-precio">Precio *</label>
+                                <input id="e-precio" class="form-control my-2" type="text">
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="e-categoria">Categoría *</label>
+                                <select id="e-categoria" class="form-select my-2">
+                                    <option value="">Seleccionar</option>
+                                    <option value="Vehículo">Vehículo</option>
+                                    <option value="Accesorio">Accesorio</option>
+                                </select>
+
+                                <div id="wrap-subcat" class="d-none">
+                                    <label class="form-label" for="e-subcategoria">Subcategoría</label>
+                                    <select id="e-subcategoria" class="form-select my-2">
+                                        <option value="">Sin subcategoría</option>
+                                        <option value="Deportivos">Deportivos</option>
+                                        <option value="Todoterreno">Todoterreno</option>
+                                        <option value="Sedanes">Sedanes</option>
+                                        <option value="De carga">De carga</option>
+                                        <option value="De viaje">De viaje</option>
+                                    </select>
+                                </div>
+
+                                <label class="form-label" for="e-img">URL de imagen *</label>
+                                <input id="e-img" class="form-control my-2" type="text">
+                            </div>
+                        </div>
+                        <div id="img-preview-wrap" class="mt-2 d-none">
+                            <img id="img-preview" src="" alt="Preview"
+                                style="max-height:100px;object-fit:cover;border-radius:8px;">
+                        </div>
+
+                        <hr>
+                        <button type="button" class="btn btn-success me-2" id="btn-guardar">
+                            Guardar cambios
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary" id="btn-cancelar-edicion">
+                            Cancelar
+                        </button>
+                    </div>
+
                 </div>
-                <hr>
-                <button class = "btn btn-success">Continuar</button>
             </div>
         </div>
     </main>
 
-    <footer class = "text-center bg-gradient text-white py-3 mt-auto" style = "font-family: 'Merriwheather'; background-color: rgb(27, 0, 94);">
+    <footer class="text-center bg-gradient text-white py-3 mt-auto"
+        style="font-family: 'Merriwheather'; background-color: rgb(27, 0, 94);">
         <p>Alfonso Marón Fernández Garibay - Desarrollo Web</p>
         <p>
             <a href="https://jigsaw.w3.org/css-validator/check/referer">
@@ -49,13 +114,150 @@
             </a>
             <a href="https://jigsaw.w3.org/css-validator/check/referer">
                 <img style="border:0;width:88px;height:31px"
-                    src="https://www.w3.org/Icons/valid-html401"
+                    src="../resources/images/valid-html401.png"
                     alt="¡HTML Válido!">
             </a>
         </p>
     </footer>
-    
-    <script src="https://cdn.jsdelivr.net/gh/AlfonsoFdzGrby/PrograWeb@main/resources/js/bootstrap.bundle.min.js"></script>
+
+    <script src="../resources/js/bootstrap.bundle.min.js"></script>
+    <script src="../resources/js/gm.js"></script>
+    <script>
+        authCheck();
+
+        let editandoId = null;
+
+        const campos = {
+            nombre:   document.getElementById('e-nombre'),
+            precio:   document.getElementById('e-precio'),
+            categoria:document.getElementById('e-categoria'),
+            img:      document.getElementById('e-img'),
+        };
+        const subcatSel     = document.getElementById('e-subcategoria');
+        const wrapSubcat    = document.getElementById('wrap-subcat');
+        const previewWrap   = document.getElementById('img-preview-wrap');
+        const previewImg    = document.getElementById('img-preview');
+        const successEl     = document.getElementById('update-success');
+
+        function renderTabla() {
+            const categoria = document.getElementById('filtro-categoria').value;
+            const filtrados = !categoria ? dbRead() : dbRead().filter(p => p.categoria === categoria);
+            const tbody = document.getElementById('tabla-body');
+            tbody.innerHTML = '';
+
+            filtrados.forEach(p => {
+                const badgeClass = p.categoria === 'Vehículo' ? 'bg-primary' : 'bg-success';
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${p.id}</td>
+                    <td>${p.nombre}</td>
+                    <td><span class="badge ${badgeClass}">${p.categoria}</span></td>
+                    <td>${p.precio}</td>
+                    <td><button class="btn btn-warning btn-sm" data-id="${p.id}">Editar</button></td>`;
+                tbody.querySelector
+                tbody.appendChild(tr);
+            });
+
+            tbody.querySelectorAll('button[data-id]').forEach(btn =>
+                btn.addEventListener('click', () => abrirEdicion(parseInt(btn.dataset.id)))
+            );
+        }
+
+        function abrirEdicion(id) {
+            const p = dbRead().find(pr => pr.id === id);
+            if (!p) return;
+
+            editandoId = id;
+            document.getElementById('edicion-titulo').innerHTML =
+                `<b>Editando producto ID #${id}</b>`;
+
+            campos.nombre.value    = p.nombre;
+            campos.precio.value    = p.precio;
+            campos.categoria.value = p.categoria;
+            campos.img.value       = p.img;
+            subcatSel.value        = p.subcategoria || '';
+
+            wrapSubcat.classList.toggle('d-none', p.categoria !== 'Vehículo');
+
+            if (/^https?:\/\/.+/.test(p.img)) {
+                previewImg.src = p.img;
+                previewWrap.classList.remove('d-none');
+            } else {
+                previewWrap.classList.add('d-none');
+            }
+
+            successEl.classList.add('d-none');
+            Object.values(campos).forEach(limpiarError);
+
+            document.getElementById('vista-seleccion').classList.add('d-none');
+            document.getElementById('vista-edicion').classList.remove('d-none');
+        }
+
+        campos.categoria.addEventListener('change', function () {
+            wrapSubcat.classList.toggle('d-none', this.value !== 'Vehículo');
+            if (this.value !== 'Vehículo') subcatSel.value = '';
+        });
+
+        campos.img.addEventListener('input', function () {
+            const url = this.value.trim();
+            if (/^https?:\/\/.+/.test(url)) {
+                previewImg.src = url;
+                previewWrap.classList.remove('d-none');
+            } else {
+                previewWrap.classList.add('d-none');
+            }
+        });
+
+        Object.values(campos).forEach(el =>
+            el.addEventListener('input', () => limpiarError(el))
+        );
+
+        document.getElementById('btn-guardar').addEventListener('click', () => {
+            const f = {
+                nombre:   campos.nombre.value,
+                precio:   campos.precio.value,
+                categoria:campos.categoria.value,
+                img:      campos.img.value,
+            };
+
+            Object.values(campos).forEach(limpiarError);
+            const errs = validarProducto(f);
+
+            if (Object.keys(errs).length) {
+                if (errs.nombre)    mostrarError(campos.nombre,    errs.nombre);
+                if (errs.precio)    mostrarError(campos.precio,    errs.precio);
+                if (errs.categoria) mostrarError(campos.categoria, errs.categoria);
+                if (errs.img)       mostrarError(campos.img,       errs.img);
+                return;
+            }
+
+            dbUpdate(editandoId, {
+                nombre:      f.nombre.trim(),
+                precio:      f.precio.trim(),
+                categoria:   f.categoria,
+                subcategoria:subcatSel.value,
+                img:         f.img.trim(),
+            });
+
+            successEl.classList.remove('d-none');
+            setTimeout(() => {
+                successEl.classList.add('d-none');
+                volverASeleccion();
+            }, 1800);
+        });
+
+        document.getElementById('btn-cancelar-edicion').addEventListener('click', volverASeleccion);
+
+        function volverASeleccion() {
+            editandoId = null;
+            document.getElementById('vista-edicion').classList.add('d-none');
+            document.getElementById('vista-seleccion').classList.remove('d-none');
+            renderTabla();
+        }
+
+        document.getElementById('filtro-categoria').addEventListener('change', renderTabla);
+        renderTabla();
+    </script>
 </body>
 
 </html>
