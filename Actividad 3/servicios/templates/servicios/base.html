@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Servicios de Ingeniería{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'servicios/css/styles.css' %}">
+</head>
+<body>
+    <header id="main-header"></header>
+    <main id="main-content">
+        <div id="app"></div>
+    </main>
+    <footer id="main-footer"></footer>
+    {% block extra_data %}{% endblock %}
+    <script src="{% static 'servicios/js/script.js' %}"></script>
+</body>
+</html>

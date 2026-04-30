@@ -1,0 +1,12 @@
+{% extends 'servicios/base.html' %}
+
+{% block title %}Alta de Servicios - Ingeniería{% endblock %}
+
+{% block extra_data %}
+<script>
+    window.DJANGO_PAGE = 'alta';
+    window.INDEX_URL = '/';
+    window.API_URL = '{% url "agregar_servicio" %}';
+    window.CSRF_TOKEN = '{{ csrf_token }}';
+</script>
+{% endblock %}

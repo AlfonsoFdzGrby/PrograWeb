@@ -1,0 +1,14 @@
+{% extends 'servicios/base.html' %}
+
+{% block title %}Servicios de Ingeniería{% endblock %}
+
+{% block extra_data %}
+<!-- Servicios cargados desde Django/SQLite -->
+<script>
+    window.DJANGO_SERVICIOS = {{ servicios_json|safe }};
+    window.DJANGO_PAGE = 'index';
+    window.ALTA_URL = '{% url "alta" %}';
+    window.API_URL = '{% url "agregar_servicio" %}';
+    window.CSRF_TOKEN = '{{ csrf_token }}';
+</script>
+{% endblock %}
