@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Motors - Seguros y Garantía</title>
+    <link rel="icon" type="image/x-icon" href="resources/images/tab-icon.png">
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+</head>
+
+<body class = "bg-light bg-gradient">
+    <header class="bg-dark bg-gradient text-white shadow px-4 py-3 d-flex justify-content-between align-items-center flex-wrap">
+        <a href="index.php">
+            <img src="resources/images/logo.png" width="250" alt="Logo">
+        </a>
+        <div class="d-flex gap-3 flex-wrap mt-3 mt-md-0">
+            <a class="btn btn-outline-light" href="index.php">Volver</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="text-center" style = "font-family: 'Merriwheather';">
+            <h2 class="pt-3">Seguros y Garantía</h2>
+            <hr>
+            <div class = "mx-5">
+                <p class="mb-1" style="font-size: 80%;">Todos nuestros vehículos son asegurados por</p>
+                <div style = "font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                    <h1 style="font-weight: bold;">NovaShield</h1>
+                    <p style="font-size: 120%;">Protección desde el primer kilómetro</p>
+                </div>
+                <hr>
+
+                <div class="row align-items-center text-start">
+
+                    <div class="col-md-7" style = "text-align: justify;">
+                        <p>
+                            En nuestra agencia, todos nuestros vehículos incluyen seguro por defecto 
+                            al momento de la compra, brindándote protección inmediata sin trámites adicionales.
+                        </p>
+
+                        <p>
+                            NovaShield ofrece cobertura especializada en autos nuevos, con procesos ágiles, 
+                            atención personalizada y respaldo total desde el día de entrega.
+                        </p>
+
+                        <hr>
+
+                        <h3 style = "font-weight: bold;">Cobertura Amplia Integral</h3>
+
+                        <ul>
+                            <li>Responsabilidad civil por daños a terceros</li>
+                            <li>Daños materiales por accidente</li>
+                            <li>Robo total</li>
+                            <li>Cristales</li>
+                            <li>Gastos médicos para ocupantes</li>
+                            <li>Asistencia vial 24/7 (grúa, paso de corriente, envío de gasolina, cambio de llanta)</li>
+                            <li>Defensa legal y asesoría jurídica</li>
+                            <li>Atención prioritaria en talleres certificado</li>
+                        </ul>
+
+                        <hr>
+
+                        <h3 style = "font-weight: bold;">¿Cómo funciona?</h3>
+
+                        <ul>
+                            <li>El seguro se activa automáticamente al facturar tu vehículo.</li>
+                            <li>Se integra en tu plan de financiamiento o pago de contado.</li>
+                            <li>Vigencia inicial de 1 año con opción a renovación preferencial.</li>
+                            <li>Gestión directa desde la agencia para cualquier siniestro.</li>
+                        </ul>
+
+                        <hr>
+
+                        <h3 style = "font-weight: bold;">Beneficios Exclusivos para Nuestros Clientes</h3>
+
+                        <ul>
+                            <li>Proceso simplificado sin papeleo adicional</li>
+                            <li>Atención directa sin intermediarios</li>
+                            <li>Evaluación rápida de siniestros</li>
+                            <li>Red de talleres especializados en autos nuevos</li>
+                            <li>Renovación con tarifa preferencial</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-5 text-center">
+                        <img 
+                            src="resources/images/nova-logo.png" 
+                            alt="NovaShield - Protección desde el primer kilómetro" 
+                            style="max-width: 80%;"
+                        >
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <h3 style = "font-weight: bold;">Conduce con total confianza</h3>
+
+                <br>
+
+                <p>
+                    Al adquirir tu vehículo con nosotros, no solo te llevas un auto nuevo, sino también la tranquilidad de estar protegido desde el primer momento.
+                </p>
+
+                <p style = "font-weight: bold; font-size: 120%;">
+                    Tu seguridad es parte del trato
+                </p>
+
+                <hr>
+
+                <p style = "font-weight: bold; font-size: 110%;">
+                    Contacta a NovaShield
+                </p>
+
+                <p>
+                    Número telefónico: 01-800-999-4000
+                </p>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class = "text-center bg-secondary bg-gradient text-white py-3 mt-auto" style = "font-family: 'Merriwheather';">
+        <p>Alfonso Marón Fernández Garibay - Desarrollo Web</p>
+        <p>
+            <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px"
+                    src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
+                    alt="¡CSS Válido!">
+            </a>
+            <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px"
+                    src="resources/images/valid-html401.png"
+                    alt="¡HTML Válido!">
+            </a>
+        </p>
+    </footer>
+    
+    <script src="resources/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

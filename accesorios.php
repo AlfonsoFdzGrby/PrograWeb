@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Motors - Accesorios</title>
+    <link rel="icon" type="image/x-icon" href="resources/images/tab-icon.png">
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+</head>
+<body class="bg-light bg-gradient">
+    <header class="bg-dark bg-gradient text-white shadow px-4 py-3 d-flex justify-content-between align-items-center flex-wrap">
+        <a href="index.php">
+            <img src="resources/images/logo.png" width="250" alt="Logo">
+        </a>
+        <div class="d-flex gap-3 flex-wrap mt-3 mt-md-0">
+            <a class="btn btn-outline-light" href="index.php">Volver</a>
+        </div>
+    </header>
+    <main>
+        <div class="text-center" style="font-family: 'Merriwheather';">
+            <h2 class="text-center pt-3">Accesorios</h2>
+            <hr>
+        </div>
+        <div class="container">
+            <div class="row" id="accesorios-row"></div>
+            <div id="seleccion-alert" class="alert alert-primary d-none d-flex justify-content-between align-items-center mt-2">
+                <span>Seleccionaste: <strong id="seleccion-nombre"></strong></span>
+                <button type="button" class="btn btn-sm btn-outline-primary" id="btn-quitar">Quitar selección</button>
+            </div>
+        </div>
+    </main>
+    <footer class="text-center bg-secondary bg-gradient text-white py-3 mt-auto" style="font-family: 'Merriwheather';">
+        <p>Alfonso Marón Fernández Garibay - Desarrollo Web</p>
+        <p>
+            <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss-blue" alt="¡CSS Válido!">
+            </a>
+            <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px" src="resources/images/valid-html401.png" alt="¡HTML Válido!">
+            </a>
+        </p>
+    </footer>
+    <script src="resources/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let selectedId = null;
+
+        function renderAccesorios() {
+            fetch('api/get_accesorios.php')
+                .then(res => res.json())
+                .then(accesorios => {
+                    const row = document.getElementById('accesorios-row');
+                    row.innerHTML = '';
+                    accesorios.forEach(acc => {
+                        const col = document.createElement('div');
+                        col.className = 'col-md-4 mb-4';
+                        col.innerHTML = `
+                            <div class="card product-card" style="cursor:pointer; border:2px solid transparent; transition:border-color .2s;" data-id="${acc.id}">
+                                <img src="${acc.img}" class="card-img-top" alt="${acc.nombre}" style="height:200px; object-fit:cover;">
+                                <div class="card-body">
+                                    <h2 class="card-title fs-5">${acc.nombre}</h2>
+                                    <p class="card-text">${acc.descripcion || acc.precio}</p>
+                                </div>
+                            </div>`;
+                        const card = col.querySelector('.card');
+                        card.addEventListener('mouseenter', () => { if (selectedId !== acc.id) card.style.borderColor = '#6c757d'; });
+                        card.addEventListener('mouseleave', () => { if (selectedId !== acc.id) card.style.borderColor = 'transparent'; });
+                        card.addEventListener('click', () => seleccionar(acc));
+                        row.appendChild(col);
+                    });
+                    actualizarSeleccion();
+                });
+        }
+
+        function seleccionar(acc) {
+            selectedId = selectedId === acc.id ? null : acc.id;
+            actualizarSeleccion();
+        }
+
+        function actualizarSeleccion() {
+            const alert = document.getElementById('seleccion-alert');
+            const nombreSpan = document.getElementById('seleccion-nombre');
+            document.querySelectorAll('#accesorios-row .card').forEach(card => {
+                const id = parseInt(card.dataset.id);
+                card.style.borderColor = id === selectedId ? '#0d6efd' : 'transparent';
+            });
+            if (selectedId !== null) {
+                fetch('api/get_accesorios.php')
+                    .then(res => res.json())
+                    .then(accesorios => {
+                        const acc = accesorios.find(p => p.id === selectedId);
+                        if (acc) nombreSpan.textContent = acc.nombre;
+                    });
+                alert.classList.remove('d-none');
+            } else {
+                alert.classList.add('d-none');
+            }
+        }
+
+        document.getElementById('btn-quitar').addEventListener('click', () => {
+            selectedId = null;
+            actualizarSeleccion();
+        });
+
+        renderAccesorios();
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Motors - Compra</title>
+    <link rel="icon" type="image/x-icon" href="resources/images/tab-icon.png">
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+</head>
+
+<body class = "bg-light bg-gradient">
+    <header class="bg-dark bg-gradient text-white shadow px-4 py-3 d-flex justify-content-between align-items-center flex-wrap">
+        <a href="index.php">
+            <img src="resources/images/logo.png" width="250" alt="Logo">
+        </a>
+        <div class="d-flex gap-3 flex-wrap mt-3 mt-md-0">
+            <a class="btn btn-outline-light" href="index.php">Volver</a>
+        </div>
+    </header>
+
+    <main>
+        <div class = "text-center" style = "font-family: 'Merriwheather';">
+            <h2 class = "text-center pt-3">Compra</h2>
+            <hr>
+            <p>
+                La compra de nuestros vehículos se efectúa unicamente en nuestras concesionarias.
+            </p>
+            <p>
+                ¡Ubica tu concesionaria más cercana!
+            </p>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1878.3405701098707!2d-101.1815593923486!3d19.68360442272247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1772501632816!5m2!1ses-419!2smx" 
+                width="600" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy"  
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </main>
+
+    <footer class = "text-center bg-secondary bg-gradient text-white py-3 mt-auto" style = "font-family: 'Merriwheather';">
+        <p>Alfonso Marón Fernández Garibay - Desarrollo Web</p>
+        <p>
+            <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px"
+                    src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
+                    alt="¡CSS Válido!">
+            </a>
+            <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px"
+                    src="resources/images/valid-html401.png"
+                    alt="¡HTML Válido!">
+            </a>
+        </p>
+    </footer>
+    
+    <script src="resources/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Motors - Misión</title>
+    <link rel="icon" type="image/x-icon" href="resources/images/tab-icon.png">
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+</head>
+<body class="bg-light bg-gradient">
+    <header class="bg-dark bg-gradient text-white shadow px-4 py-3 d-flex justify-content-between align-items-center flex-wrap">
+        <a href="index.php">
+            <img src="resources/images/logo.png" width="250" alt="Logo">
+        </a>
+        <div class="d-flex gap-3 flex-wrap mt-3 mt-md-0">
+            <a class="btn btn-outline-light" href="index.php">Volver</a>
+        </div>
+    </header>
+    <main>
+        <div class="text-center" style="font-family: 'Merriwheather';">
+            <h2 class="pt-3">Misión</h2>
+            <hr>
+            <div class="mx-5 mision-section">
+                <div class="mision-content">
+                    <p>En Grand Motors, nuestra misión es simplificar tu búsqueda de tu coche.</p>
+                    <p>Te ofrecemos una amplia selección online, un equipo experto para guiarte y una experiencia de consulta transparente y sin complicaciones.</p>
+                    <p>Te ayudamos a encontrar el vehículo perfecto que se ajuste a tus necesidades y presupuesto.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="text-center bg-secondary bg-gradient text-white py-3 mt-auto" style="font-family: 'Merriwheather';">
+        <p>Alfonso Marón Fernández Garibay - Desarrollo Web</p>
+        <p>
+            <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss-blue" alt="¡CSS Válido!">
+            </a>
+            <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px" src="resources/images/valid-html401.png" alt="¡HTML Válido!">
+            </a>
+        </p>
+    </footer>
+    <script src="resources/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
