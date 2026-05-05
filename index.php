@@ -50,7 +50,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modal-auto-titulo"></h5>
+                    <h5 class="modal-title" id="modal-auto-titulo">Cargando...</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body text-center">
@@ -76,13 +76,13 @@
                     <div id="login-alert" class="alert alert-danger d-none"></div>
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Usuario</label>
-                        <input type="text" id="login-usuario" class="form-control" placeholder="Usuario">
+                        <input type="password" id="login-usuario" class="form-control" placeholder="Usuario">
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Contraseña</label>
                         <input type="password" id="login-password" class="form-control" placeholder="Contraseña">
                     </div>
-                    <small class="text-muted">Demo: usuario <code>admin</code> / contraseña <code>1234</code></small>
+                    <!-- <small class="text-muted">Demo: usuario <code>admin</code> / contraseña <code>1234</code></small> -->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
