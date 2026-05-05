@@ -1,4 +1,6 @@
 <?php/*
+    // QUITAR MARCAS DE COMENTARIO EN CASO DE QUERER EJECUTAR EL SCRIPT
+    
     require_once 'includes/db.php';
 
     // EJECUCIÓN DE UNA SOLA VEZ
